@@ -156,20 +156,31 @@ button:active {
   </div> 
 </main>
 
-<!-- Elemento do som de botão carregado a partir do seu repositório -->
-<audio id="som-clique" src="Pokémon - Som do botão(M4A_128k).m4a" preload="auto"></audio>
+<!-- Nome exato do arquivo de som enviado ao repositório -->
+<audio id="som-clique" src="Pokémon - Som do botão(M4A_128K).m4a" preload="auto"></audio>
 
 <script>
-// Função para tocar o som de clique
+const audio = document.getElementById("som-clique");
+
 function tocarSom() {
-  const audio = document.getElementById("som-clique");
   if (audio) {
     audio.currentTime = 0;
-    audio.play().catch(e => console.log("Aguardando interação do usuário para tocar o som."));
+    audio.play().catch(e => console.log("Aguardando desbloqueio do navegador"));
   }
 }
 
-// Aplica o som de clique em todos os botões automaticamente
+// Destrava o áudio no primeiro toque na tela do celular
+document.body.addEventListener("click", function desbloquearAudio() {
+  if (audio) {
+    audio.play().then(() => {
+      audio.pause();
+      audio.currentTime = 0;
+    }).catch(e => {});
+    document.body.removeEventListener("click", desbloquearAudio);
+  }
+}, { once: true });
+
+// Aplica o som em todos os botões
 document.addEventListener("DOMContentLoaded", () => {
   const botoes = document.querySelectorAll("button");
   botoes.forEach(botao => {
@@ -191,6 +202,4 @@ function mostrarDepoimentos() {
 }
 </script>
 </body>
-              </html>
-
-  
+</html>
