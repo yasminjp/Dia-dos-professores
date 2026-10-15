@@ -34,8 +34,37 @@ button {
   color: #17334a;
   font-size: 16px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+button:active {
+  transform: scale(0.95);
 }
 #mensagem, #quiz { display: none; line-height: 1.8; }
+
+/* Estilo da Galeria / Memorial de Fotos */
+.memorial-container {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+.grid-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+.grid-fotos img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #ffffff88;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.grid-fotos img:hover {
+  transform: scale(1.05);
+}
 </style>
 </head>
 <body>
@@ -74,7 +103,7 @@ button {
     <button onclick="mostrarDepoimentos()">Óbvio</button>
   </div>
 
-  <!-- Seção com os recados e áudios (começa escondida) -->
+  <!-- Seção com os recados, áudios e fotos (começa escondida) -->
   <div id="depoimentos" style="display: none; margin-top: 25px;">
     <!-- Recado em texto -->
     <p>"Prof. Jana, só tenho a agradecer por tudo, tu acolheu o Arthur nos primeiros anos da escola e foste incrível! Tens esse dom de acolher, ensinar e amar nossos pequenos! Feliz dia dos professores!!<br>Um beijo do 'teu bolinho' como chamavas o Arthur.<br>Andreia da Rosa"</p>
@@ -97,21 +126,57 @@ button {
             Seu navegador não suporta o reprodutor de áudio.
         </audio>
     </div>
-    <!-- Áudio 3 -->
 
-  <div style="margin-top: 15px;">
-    <p style="font-size: 14px;">🎙️ Mensagem de voz 3:</p>
-    <audio controls>
-        <source src="AUD-20261015-WA0372.opus" type="audio/ogg">
-        Seu navegador não suporta o reprodutor de áudio.
-    </audio>
-    
-</div>
-    
+    <!-- Áudio 3 -->
+    <div style="margin-top: 15px;">
+        <p style="font-size: 14px;">🎙️ Mensagem de voz 3:</p>
+        <audio controls>
+            <source src="AUD-20261015-WA0372.opus" type="audio/ogg">
+            Seu navegador não suporta o reprodutor de áudio.
+        </audio>
+    </div>
+
+    <!-- Memorial de Fotos com os alunos -->
+    <div class="memorial-container">
+        <h2>Mural de Memórias 📸✨</h2>
+        <p style="font-size: 14px;">Momentos inesquecíveis com os alunos</p>
+        <div class="grid-fotos">
+            <img src="FB_IMG_1792101763194.jpg" alt="Foto Prof. Jana 1">
+            <img src="FB_IMG_1792101768102.jpg" alt="Foto Prof. Jana 2">
+            <img src="FB_IMG_1792101771524.jpg" alt="Foto Prof. Jana 3">
+            <img src="IMG-20261015-WA0386.jpg" alt="Foto Alunos 1">
+            <img src="IMG-20261015-WA0387.jpg" alt="Foto Alunos 2">
+            <img src="IMG-20261015-WA0388.jpg" alt="Foto Alunos 3">
+            <img src="IMG-20261015-WA0389.jpg" alt="Foto Alunos 4">
+            <img src="IMG-20261015-WA0390.jpg" alt="Foto Alunos 5">
+            <img src="IMG-20261015-WA0391.jpg" alt="Foto Alunos 6">
+            <img src="IMG-20261015-WA0392.jpg" alt="Foto Alunos 7">
+        </div>
+    </div>
   </div> 
 </main>
 
+<!-- Elemento do som de botão carregado a partir do seu repositório -->
+<audio id="som-clique" src="Pokémon - Som do botão(M4A_128k).m4a" preload="auto"></audio>
+
 <script>
+// Função para tocar o som de clique
+function tocarSom() {
+  const audio = document.getElementById("som-clique");
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play().catch(e => console.log("Aguardando interação do usuário para tocar o som."));
+  }
+}
+
+// Aplica o som de clique em todos os botões automaticamente
+document.addEventListener("DOMContentLoaded", () => {
+  const botoes = document.querySelectorAll("button");
+  botoes.forEach(botao => {
+    botao.addEventListener("click", tocarSom);
+  });
+});
+
 function mostrar() {
   document.getElementById("mensagem").style.display = "block";
 }
@@ -119,13 +184,13 @@ function pergunta() {
   document.getElementById("quiz").style.display = "block";
 }
 function responder() {
-  document.getElementById("resposta").innerText = "Isso mesmo! Feliz Dia dos Professores! 🎓📚";
+  document.getElementById("resposta").innerText = "Isso mesmo! Feliz Dia dos Professores! 🎓📚🚀⭐";
 }
 function mostrarDepoimentos() {
   document.getElementById("depoimentos").style.display = "block";
 }
 </script>
 </body>
-</html>
+              </html>
 
-    
+  
