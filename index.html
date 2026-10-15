@@ -156,31 +156,19 @@ button:active {
   </div> 
 </main>
 
-<!-- Nome exato do arquivo de som enviado ao repositório -->
-<audio id="som-clique" src="Pokémon - Som do botão(M4A_128K).m4a" preload="auto"></audio>
+<!-- Som de clique rápido e garantido para web -->
+<audio id="som-clique" src="https://www.myinstants.com/media/sounds/click.mp3" preload="auto"></audio>
 
 <script>
-const audio = document.getElementById("som-clique");
-
 function tocarSom() {
+  const audio = document.getElementById("som-clique");
   if (audio) {
     audio.currentTime = 0;
-    audio.play().catch(e => console.log("Aguardando desbloqueio do navegador"));
+    audio.play().catch(e => console.log("Aguardando interação"));
   }
 }
 
-// Destrava o áudio no primeiro toque na tela do celular
-document.body.addEventListener("click", function desbloquearAudio() {
-  if (audio) {
-    audio.play().then(() => {
-      audio.pause();
-      audio.currentTime = 0;
-    }).catch(e => {});
-    document.body.removeEventListener("click", desbloquearAudio);
-  }
-}, { once: true });
-
-// Aplica o som em todos os botões
+// Aplica o som em todos os botões da página instantaneamente
 document.addEventListener("DOMContentLoaded", () => {
   const botoes = document.querySelectorAll("button");
   botoes.forEach(botao => {
