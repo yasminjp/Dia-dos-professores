@@ -156,19 +156,20 @@ button:active {
   </div> 
 </main>
 
-<!-- Som de clique rápido e garantido para web -->
-<audio id="som-clique" src="https://www.myinstants.com/media/sounds/click.mp3" preload="auto"></audio>
+<!-- Arquivo novo do som de clique -->
+<audio id="som-clique" src="AUD-20261015-WA0425.mp3" preload="auto"></audio>
 
 <script>
+// Função para tocar o som novo em cada clique
 function tocarSom() {
   const audio = document.getElementById("som-clique");
   if (audio) {
     audio.currentTime = 0;
-    audio.play().catch(e => console.log("Aguardando interação"));
+    audio.play().catch(e => console.log("Aguardando toque na tela"));
   }
 }
 
-// Aplica o som em todos os botões da página instantaneamente
+// Associa a função do som em todos os botões do site
 document.addEventListener("DOMContentLoaded", () => {
   const botoes = document.querySelectorAll("button");
   botoes.forEach(botao => {
