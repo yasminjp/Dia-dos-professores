@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Dia dos Professores!</title>
+<style>
+body {
+  margin: 0;
+  padding: 25px 15px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #102b46, #285b72, #d5a85c);
+  font-family: Georgia, serif;
+  color: #fff;
+  text-align: center;
+}
+main {
+  max-width: 520px;
+  margin: 25px auto;
+  padding: 25px 20px;
+  background: #ffffff18;
+  border: 1px solid #ffffff55;
+  border-radius: 22px;
+}
+h1 { color: #ffe5a3; }
+.icon { font-size: 55px; }
+button {
+  padding: 13px 20px;
+  margin: 8px;
+  border: 0;
+  border-radius: 20px;
+  background: #ffe5a3;
+  color: #17334a;
+  font-size: 16px;
+}
+#mensagem, #quiz { display: none; line-height: 1.8; }
+</style>
+</head>
+<body>
+<main>
+  <div class="icon">📚🍎</div>
+  <h1>Feliz Dia dos Professores!</h1>
+  <p>Hoje é dia de homenagear quem transforma vidas através do conhecimento.</p>
+  <p>Prepare-se para uma pequena surpresa! ✨</p>
+  <button onclick="mostrar()">Abrir homenagem 💌</button>
+  <div id="mensagem">
+    <h2>Ensinar é deixar marcas para sempre. ❤️</h2>
+    <p>
+      Um professor não ensina apenas matérias.
+      Ensina a pensar, a questionar, a descobrir talentos
+      e a acreditar que podemos ir mais longe.
+      Cada explicação, cada conselho e cada palavra de incentivo
+      pode mudar o futuro de alguém.
+    </p>
+    <p>Obrigada por fazer a diferença! </p>
+    <div class="icon">🍎🎓✨</div>
+    <button onclick="pergunta()">Uma última surpresa 👀</button>
+  </div>
+  <div id="quiz">
+    <h2>Complete a frase:</h2>
+    <p>Um bom professor pode mudar...</p>
+    <button onclick="responder()">Uma vida inteira! ❤️</button>
+    <p id="resposta"></p>
+  </div>
+</main>
+<script>
+function mostrar() {
+  document.getElementById("mensagem").style.display = "block";
+}
+function pergunta() {
+  document.getElementById("quiz").style.display = "block";
+}
+function responder() {
+  document.getElementById("resposta").innerText =
+  "Isso mesmo! Feliz Dia dos Professores! 🎓📚";
+}
+</script>
+</body>
+                                                        </html>
+                                                        
